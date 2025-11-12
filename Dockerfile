@@ -16,6 +16,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the application source code into the container
 COPY src/ ./src/
 
+COPY .env .env
+
 # Declare a volume for persistent data (e.g., the last_vote_day.txt file)
 VOLUME /app/data
 
