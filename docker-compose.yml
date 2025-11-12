@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  notifier:
+    build: .
+    container_name: pt-parliament-notifier
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      # This maps the 'app_data' directory on the host to the '/app/data'
+      # directory inside the container. This ensures the last_vote_day.txt
+      # file is persistent across container restarts.
+      - ./app_data:/app/data
