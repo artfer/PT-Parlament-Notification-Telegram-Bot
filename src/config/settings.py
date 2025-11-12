@@ -1,13 +1,13 @@
 import os
 from dotenv import load_dotenv
 
-# Load environment variables from a .env file in the project root
-dotenv_path = os.path.join(os.path.dirname(__file__), '..', '..', '.env')
-load_dotenv(dotenv_path=dotenv_path)
+# load_dotenv() will automatically search for and load variables from a .env file
+# in the current directory or parent directories.
+load_dotenv()
 
 # --- Telegram Configuration ---
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-TARGET_CHAT_ID = os.getenv("TARGET_CHAT_ID")
+TELEGRAM_CHAT_ID = os.getenv("TARGET_CHAT_ID")
 
-# --- Data Fetcher Configuration ---
-ARCHIVE_URL = 'https://www.parlamento.pt/ArquivoDocumentacao/Paginas/Arquivodevotacoes.aspx'
+# --- Scraper Configuration ---
+ARCHIVE_URL = os.getenv("ARCHIVE_URL")
