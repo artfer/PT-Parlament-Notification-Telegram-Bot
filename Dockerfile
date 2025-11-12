@@ -20,7 +20,7 @@ COPY src/ ./src/
 VOLUME /app/data
 
 # Create a cron job file
-RUN echo "0 22 * * * cd /app && /usr/local/bin/python -m src.main >> /proc/1/fd/1 2>> /proc/1/fd/2" > /etc/cron.d/parliament-cron
+RUN echo "0 22 * * * . /root/project_env.sh; cd /app && /usr/local/bin/python -m src.main >> /proc/1/fd/1 2>> /proc/1/fd/2" > /etc/cron.d/parliament-cron
 
 # Give execution rights on the cron job file
 RUN chmod 0644 /etc/cron.d/parliament-cron
@@ -33,4 +33,4 @@ RUN touch /var/log/cron.log
 
 # Run the command on container startup
 # Start the cron daemon in the foreground
-CMD cron && tail -f /var/log/cron.log
+CMD printenv | sed 's/^\(.*\)$/export \1/g' > /root/project_env.sh && cron && tail -f /var/log/cron.log

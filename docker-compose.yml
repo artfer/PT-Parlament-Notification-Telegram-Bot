@@ -6,9 +6,9 @@ services:
     container_name: pt-parliament-notifier
     restart: unless-stopped
     environment:
-     - TELEGRAM_BOT_TOKEN="YOUR_TELEGRAM_BOT_TOKEN_HERE"
-     - TELEGRAM_CHAT_ID="YOUR_TELEGRAM_CHAT_ID_HERE"
-     - ARCHIVE_URL="https://www.parlamento.pt/ArquivoDocumentacao/Paginas/Arquivodevotacoes.aspx"
+     - TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN_HERE
+     - TELEGRAM_CHAT_ID=YOUR_TELEGRAM_CHAT_ID_HERE
+     - ARCHIVE_URL=https://www.parlamento.pt/ArquivoDocumentacao/Paginas/Arquivodevotacoes.aspx
     volumes:
       # This maps the 'app_data' directory on the host to the '/app/data'
       # directory inside the container. This ensures the last_vote_day.txt
