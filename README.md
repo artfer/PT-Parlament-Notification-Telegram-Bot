@@ -62,7 +62,7 @@ ARCHIVE_URL=https://www.parlamento.pt/ActividadeParlamentar/Paginas/Votacoes.asp
 
 -   **`TELEGRAM_CHAT_ID`**:
     1.  In your `.env` file, set a temporary value for `TELEGRAM_CHAT_ID` (e.g., `TELEGRAM_CHAT_ID=12345`).
-    2.  Start the service for the first time: `docker-compose up -d --build`.
+    2.  Start the service for the first time: `docker compose up -d --build`.
     3.  Add your bot to the target Telegram group or channel and make it an administrator.
     4.  Execute the ID utility script inside the running container. This will start a temporary process to listen for your command.
         ```bash
@@ -72,7 +72,7 @@ ARCHIVE_URL=https://www.parlamento.pt/ActividadeParlamentar/Paginas/Votacoes.asp
     6.  Copy the correct ID and update the `TELEGRAM_CHAT_ID` value in your `.env` file.
     7.  Restart the service to apply the new environment variable:
         ```bash
-        docker-compose up -d --force-recreate
+        docker compose up -d --force-recreate
         ```
 
 ### 3. Build and Run the Container
@@ -81,7 +81,7 @@ With Docker and Docker Compose installed, run the following command from the pro
 
 ```bash
 # Build the image and start the service in detached mode
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 Your notifier is now running! It will automatically execute the script every night.
