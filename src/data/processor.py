@@ -29,7 +29,7 @@ class Processor:
             response.raise_for_status()
         except requests.exceptions.RequestException as e:
             logging.error(f"An error occurred while fetching the Archive URL: {e}")
-            return None
+            return None, None
         
         archive_html = BeautifulSoup(response.content, 'html.parser')
         calendar_components = archive_html.find_all(class_='home_calendar')

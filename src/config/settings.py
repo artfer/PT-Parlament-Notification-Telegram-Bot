@@ -7,7 +7,7 @@ load_dotenv()
 
 # --- Telegram Configuration ---
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-TELEGRAM_CHAT_ID = os.getenv("TARGET_CHAT_ID")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 # --- Scraper Configuration ---
 ARCHIVE_URL = os.getenv("ARCHIVE_URL")
