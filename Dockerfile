@@ -22,7 +22,6 @@ COPY .env .env
 VOLUME /app/data
 
 # Create a cron job file
-RUN echo "0 22 * * * /usr/local/bin/python -m src.main >> /proc/1/fd/1 2>> /proc/1/fd/2" > /etc/cron.d/parliament-cron
 RUN echo "0 22 * * * cd /app && /usr/local/bin/python -m src.main >> /proc/1/fd/1 2>> /proc/1/fd/2" > /etc/cron.d/parliament-cron
 
 # Give execution rights on the cron job file
