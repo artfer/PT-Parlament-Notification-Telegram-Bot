@@ -42,15 +42,18 @@ Follow these steps to get the notifier up and running.
 
 ### 2. Configure Environment Variables
 
-The application uses an `.env` file to manage configuration and secrets.
+The application's configuration is managed via environment variables set directly in the `docker-compose.yml` file.
 
-Create a file named `.env` in the project root and add the following content:
+Open the `docker-compose.yml` file and locate the `environment` section. You will need to replace the placeholder values.
 
-```dotenv
-# .env
-TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN_HERE
-TELEGRAM_CHAT_ID=YOUR_TELEGRAM_CHAT_ID_HERE
-ARCHIVE_URL=https://www.parlamento.pt/ActividadeParlamentar/Paginas/Votacoes.aspx
+```yaml
+services:
+  notifier:
+    ...
+    environment:
+     - TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN_HERE
+     - TELEGRAM_CHAT_ID=YOUR_TELEGRAM_CHAT_ID_HERE
+     - ARCHIVE_URL=https://www.parlamento.pt/ActividadeParlamentar/Paginas/Votacoes.aspx
 ```
 
 **How to get your credentials:**
